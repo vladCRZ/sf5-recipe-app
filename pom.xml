@@ -14,7 +14,7 @@
     <name>sf5-recipe-app</name>
     <description>sf5-recipe-app</description>
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>17</java.version>
     </properties>
     <dependencies>
         <dependency>
