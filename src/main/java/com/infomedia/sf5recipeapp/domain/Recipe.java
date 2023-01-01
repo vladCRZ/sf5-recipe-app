@@ -27,6 +27,17 @@ public class Recipe {
     @OneToOne(cascade = CascadeType.ALL)
     private Notes notes;
 
+
+    @Enumerated(value = EnumType.STRING)
+    private Difficulty difficulty;
+
+
+    @ManyToMany
+    @JoinTable(name = "recipe_category",
+               joinColumns = @JoinColumn(name = "recipe_id"), inverseJoinColumns
+               = @JoinColumn(name = "category_id"))
+    private Set<Category> categories;
+
     public String getDescription() {
         return description;
     }
@@ -105,5 +116,29 @@ public class Recipe {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Difficulty getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(Difficulty difficulty) {
+        this.difficulty = difficulty;
+    }
+
+    public Set<Ingredient> getIngredientss() {
+        return ingredientss;
+    }
+
+    public void setIngredientss(Set<Ingredient> ingredientss) {
+        this.ingredientss = ingredientss;
+    }
+
+    public Set<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Set<Category> categories) {
+        this.categories = categories;
     }
 }
